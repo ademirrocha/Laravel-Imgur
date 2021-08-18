@@ -1,13 +1,17 @@
 {
-    "name": "yish/imgur",
+    "name": "arf/imgur",
     "description": "Imgur upload API with Laravel.",
-    "keywords": ["laravel", "upload", "imgur"],
-    "homepage": "https://github.com/Mombuyish/Laravel-Imgur",
+    "keywords": ["laravel", "upload", "imgur", "images"],
+    "homepage": "https://github.com/ademirrocha/Laravel-Imgur",
     "type": "library",
     "authors": [
         {
             "name": "Yish",
             "email": "mombuartworks@gmail.com"
+        },
+        {
+            "name": "Ademir Rocha",
+            "email": "tiademir.rocha93@gmail.com"
         }
     ],
     "require": {
@@ -16,17 +20,17 @@
     },
     "autoload": {
         "psr-4": {
-            "Yish\\Imgur\\": "src/"
+            "Arf\\Imgur\\": "src/"
         }
     },
     "extra": {
         "component": "package",
         "laravel": {
             "providers": [
-                "Yish\\Imgur\\UploadServiceProvider"
+                "Arf\\Imgur\\UploadServiceProvider"
             ],
             "aliases": {
-                "Imgur": "Yish\\Imgur\\Facades\\Upload"
+                "Imgur": "Arf\\Imgur\\Facades\\Upload"
             }
         }
     }
