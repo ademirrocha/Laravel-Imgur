@@ -173,6 +173,42 @@ class Upload implements Contract
     }
 
     /**
+     * Main entrance point.
+     *
+     * @param $id
+     * @return $this
+     */
+    public function get($id)
+    {
+        $client = new Client();
+
+        $response = $client->request('GET', $this->url . '/' . $id, array_merge($this->getHeaders(), $this->getFormParams()));
+
+        $this->setResponse(json_decode($response->getBody()->getContents()));
+
+        return $this;
+    }
+
+    /**
+     * Main entrance point.
+     *
+     * @param $id
+     * @return $this
+     */
+    public function update($image, $id)
+    {
+        $client = new Client();
+
+        $this->setImage($this->fileType($image));
+
+        $response = $client->request('POST', $this->url . '/' . $id, array_merge($this->getHeaders(), $this->getFormParams()));
+
+        $this->setResponse(json_decode($response->getBody()->getContents()));
+
+        return $this;
+    }
+
+    /**
      * get uploaded image link.
      *
      * @return mixed
