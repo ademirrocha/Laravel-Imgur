@@ -31,7 +31,7 @@ Laravel Imgur is super easy upload image to imgur package.
 ## Installation
 
 ``` bash
-$ composer require yish/imgur
+$ composer require arf/imgur
 ```
 
 ### Registering Service Provider
