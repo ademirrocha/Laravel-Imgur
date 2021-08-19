@@ -6,17 +6,17 @@
     "type": "library",
     "authors": [
         {
-            "name": "Yish",
-            "email": "mombuartworks@gmail.com"
-        },
-        {
             "name": "Ademir Rocha",
             "email": "tiademir.rocha93@gmail.com"
+        },
+        {
+            "name": "Yish",
+            "email": "mombuartworks@gmail.com"
         }
     ],
     "require": {
         "php": ">=7.2",
-        "guzzlehttp/guzzle": "^6.3"
+        "guzzlehttp/guzzle": "^7.2"
     },
     "autoload": {
         "psr-4": {

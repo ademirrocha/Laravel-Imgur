@@ -1,13 +1,13 @@
 <?php
 
-namespace Yish\Imgur\Test;
+namespace Arf\Imgur\Test;
 
 use GuzzleHttp\Exception\ClientException;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Imgur;
-use Yish\Imgur\Upload;
+use Arf\Imgur\Upload;
 
 class ImgurTest extends TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Yish\Imgur;
+namespace Arf\Imgur;
 
 interface Contract
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Yish\Imgur;
+namespace Arf\Imgur;
 
 use Illuminate\Support\ServiceProvider;
 
