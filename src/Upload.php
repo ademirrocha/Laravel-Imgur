@@ -3,6 +3,7 @@
 namespace Arf\Imgur;
 
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Storage;
 use InvalidArgumentException;
 use Illuminate\Http\UploadedFile;
 
@@ -119,14 +120,43 @@ class Upload implements Contract
     private function getFormParams()
     {
         if (empty($this->params)) {
+            $path = $this->downloadBase64($this->image);
+
+            $imageData = base64_encode(file_get_contents(Storage::path($path['path'])));
+
             return [
                 'form_params' => [
-                    'image' => $this->image
+                    'image' => $imageData,
+                    'type' => 'base64'
                 ]
             ];
         }
 
         return $this->params;
+    }
+
+    private function downloadBase64($file){
+        $base64 = $file;
+        //obtem a extensão
+        $extension = explode('/', $base64);
+        if(isset($extension[1])){
+            $extension = explode(';', $extension[1]);
+        }else{
+            return false;
+        }
+        $extension = '.'.$extension[0];
+        //gera o nome
+        $name = time().$extension;
+        //obtem o arquivo
+        $separatorFile = explode(',', $base64);
+        $file = $separatorFile[1];
+        $path = 'images/validate/';
+        //envia o arquivo
+        Storage::put($path.$name, base64_decode($file));
+
+        return [
+            'path' => $path.$name
+        ];
     }
 
     private function setImage($image)
